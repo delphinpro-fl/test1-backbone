@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Test 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="/design/vendor/normalize-css/normalize.css" rel="stylesheet"/>
+    <link href="/design/css/screen.css" rel="stylesheet"/>
+
+    <script src="/design/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/design/vendor/underscore/underscore-min.js"></script>
+    <script src="/design/vendor/backbone/backbone-min.js"></script>
+    <script src="/design/vendor/handlebars/handlebars.min.js"></script>
+    <script src="/design/js/main.js"></script>
+</head>
+<body>
+
+<div class="app" id="app">
+    <div class="main">
+        <div class="side" id="side">
+            <script type="text/template" id="tpl-side">
+                <ul>
+                    <li><span>First name:</span><span>{{ first_name }}</span></li>
+                    <li><span>Last name:</span><span>{{ last_name }}</span></li>
+                    <li><span>Age:</span><span>{{ age }}</span></li>
+                    <li><span>Location:</span><span>{{ location }}</span></li>
+                </ul>
+            </script>
+        </div>
+        <div class="content" id="content">
+            <script type="text/template" id="tpl-content">
+                <div>{{ first_name }}</div>
+                <div>{{ last_name }}</div>
+            </script>
+        </div>
+    </div>
+    <div class="nav">
+        <ul id="items">
+        </ul>
+        <script type="text/template" id="tpl-item">
+            <a href="#!/{{ id }}">
+                {{ first_name }} <br> {{ age }}
+            </a>
+        </script>
+    </div>
+    <div class="pager" id="pager">
+        <script type="text/template" id="tpl-pager">
+            {{#if previousId }}
+            <a href="#!/{{ previousId }}" data-id="{{ previousId }}" class="pager__prev">&larr;</a>
+            {{else}}
+            <span>&larr;</span>
+            {{/if}}
+            <span class="pager__current">{{ currentId }}</span>
+            {{#if nextId }}
+            <a href="#!/{{ nextId }}" data-id="{{ nextId }}" class="pager__next">&rarr;</a>
+            {{else}}
+            <span>&rarr;</span>
+            {{/if}}
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
